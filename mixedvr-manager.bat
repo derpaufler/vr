@@ -111,10 +111,10 @@ if exist userdata\chaperone_info.vrchap (
 if "%steamvrStatus%" == "running" (
 	echo MixedVR-Manager is restarting SteamVR so it SteamVR can detect the now powered on lighthouses and HMD.
 	taskkill /f /im "steamvr_room_setup.exe" 2>NUL
-	taskkill /f /im "vrmonitor.exe"
-	taskkill /f /im "vrserver.exe"
-	taskkill /f /im "OpenVR-SpaceCalibrator.exe" 2>NUL
-	start steam://launch/250820/VR
+::	taskkill /f /im "vrmonitor.exe"
+::	taskkill /f /im "vrserver.exe"
+::	taskkill /f /im "OpenVR-SpaceCalibrator.exe" 2>NUL
+::	start steam://launch/250820/VR
 	
 	:: wait until SteamVR Room Setup starts, then kill it. if it doesn't start after 
 	:: maxWaitTimeForRoomSetup seconds, assume it's never going to start, and just 
