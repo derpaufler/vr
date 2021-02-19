@@ -1,11 +1,16 @@
+English-Tutorial at the bottom of the page (work in progress).
+
 Dieses Tutorial ist eine Übersetzung und Anpassung der Tutorials von PumkinSpice und monstermac77:
+This Tutorial is a translation and modified version of the tutorials of PumkinSpice and monstermac77:
 https://github.com/PumkinSpice/MixedVR/wiki/ReadMe
 https://github.com/monstermac77/vr
+
 Mit Zustimmung von monstermac77 fasse ich alle Schritte auf Deutsch zusammen und stelle euch im Laufe des Tutorials eine Anpassung seines Tools "MixedVR Manager" bereit.
+With the approval of monstermac77 I sum up every step in German and I present you a modified version of his tool "MixedVR Manager".
 
 ======
 
-Video-Tutorial: 
+Deutsches/German Tutorial:
 
 In diesem Tutorial zeige ich euch, wie ihr die HP Reverb G2 mit den Index Controllern koppeln könnt.
 
@@ -216,3 +221,453 @@ Lest euch dieses Tutorial erneut durch oder schaut es euch als Video an, um alle
 ENDE: Bitte bewertet das oben verlinkte YouTube-Video, weshalb dieses schriftliche Tutorial erst entstanden ist, und lasst ein Abonnement da, wenn ihr zukünftig mehr über VR sehen möchtet. Eure Discord-Mitgliedschaften, eure Kommentare und eure Abos motivieren mich, auch zukünftig Content bereitszustellen.
 
 Bis bald, euer Marco.
+
+===============================================
+
+English/englisches Tutorial (work in progress/in Arbeit):
+
+In this tutorial I show you how you can pair the HP Reverb G2 with the Index Controllers.
+
+I will show you that it is very easy to implement if you follow this video tutorial. It is of course important that you don't skip a single step and really do everything exactly as I show and describe it to you. Skipping steps because you think you have done this and that beforehand, or you consider something as unnecessary, may lead to problems later on.
+
+Once you've set it up, you don't need to do anything afterwards. If you ask yourself right at the beginning of the video that the index controllers will eventually drift away because the coordinates of the HP Reverb G2 change from time to time, then I'll also show you how quickly and easily you can fix this again. And this without a G2 controller to recalibrate.
+
+My personal goal was to completely replace the HP Reverb G2 controllers. Not because I would find the tracking or the controllers themselves so bad, no, on the contrary, but the index controllers are simply much better. This also applies to me in comparison to the Oculus Touch controllers.
+
+It was also a condition that I could use the HP Reverb G2 again at any time without the lighthouse tracking, e.g. again normally with the G2 controllers, without having to configure much. Since I have two playspaces, that's important to me.
+
+Furthermore, the HP Reverb G2 with its combinable tracking systems turns out to be a real all-rounder, since with Lighthouse HMDs you always need the base stations, and that is really very cumbersome. Of course, the G2 won't be as portable as a Quest 2, and certainly not wireless, but this solution is really interesting for various playspaces.
+
+All of this has only been made possible by the really dedicated tinkerers on Reddit. Visit in case of additional questions not only our Discord, but also the subreddit MixedVR.
+
+Many thanks at this point, especially to the users monstermac77, pushrax, PumpkinSpice, Tetracyclic and the programmers of the OVR Advanced Settings. Above all, monstermac77 discussed one or the other thing with me personally, which is why I am able to introduce you to a really cool tool in the course of the video.
+
+Now enough of the foreword! Let's get into the tutorial.
+
+As a prerequisite, of course, you need the HP Reverb G2, the Index Controller and at least two Lighthouse Base Stations of version 1.0 or 2.0. Whether these are from Valve or HTC is not relevant. What is not so obvious is the fact that you need a Bluetooth Low Energy dongle for each of the two index controllers. Unfortunately, you can't just use any dongle, you need either two official HTC Vive Tracker dongles or two Steam Controller dongles. Unfortunately, both are not readily available at the moment. Check back often at TundraLabs or on eBay.
+
+You can of course also buy the HTC Vive tracker, as the dongles are already included, but they cost around EUR 160 each, and you cannot connect the trackers to the index controllers in parallel to the dongles. Therefore, I would advise against buying the trackers just because of the dongles.
+
+If you want to use two Steam Controller dongles, you have to flash them. After that, they are no longer compatible with the Steam Controller. You can find the instructions for this in the video description, but I have not tested this myself and can therefore not help.
+
+It is recommended to use the Vive Tracker Dongles in USB 2.0 ports, as USB 3.2 ports can cause interference with the radio signal. It is therefore essential that you use one USB 2.0 extension per dongle so that they are as close as possible to you and as far away from each other as possible.
+
+For the best comfort, your PC itself needs at least Bluetooth 4.0 with sufficient range to reach the Lighthouse base stations. Small Bluetooth dongles in particular often have to struggle with range. However, if you don't have Bluetooth, you don't necessarily need to buy a dongle. More on that later.
+
+All links to the sources and to things that you need or need to buy can be found in the video description.
+
+In addition to the hardware, we also need a lot of software. The G2 must of course already be configured and set up. In addition, Steam and SteamVR must be installed, including of course the Windows Mixed Reality for SteamVR driver. Furthermore, the following free software must be downloaded and installed immediately afterwards: The OVR Advanced Settings from the Steam Store and the OpenVR SpaceCalibrator from GitHub.
+
+So let's start with the setup.
+
+First pull the power plug of the G2 out of the socket so that it doesn't switch on all the time when we don't need it. Before doing this, close the WMR portal, if it is open, so that the G2 is switched off properly. Incidentally, I can recommend a smart home plug or a radio-controlled socket here. This is the best and most reliable method to ensure that the G2 does not throw any errors and is only switched on when we need it.
+
+Then you plug one of the two dongles together with the recommended USB extension into your PC. This should then be recognized by Windows. Wait until it is "set up and ready to use".
+
+Open Steam and SteamVR. It is true that no VR headset is connected. In SteamVR click on Settings, Devices, Pair controllers on the desktop. Select the Valve Index Controller and follow the on-screen instructions to pair one of the two controllers. As soon as the controller is coupled, confirm the coupling with "OK" and switch off the index controller. Then pull the dongle off the PC. Incidentally, it is not relevant in which port you later plug the dongles back in, as long as it is always the recommended USB 2.0 port.
+
+Then repeat the whole thing again with the second dongle and the second controller.
+
+When the pairing is complete, confirm the process with "OK" and switch off the index controller. You can now plug in the first dongle again and then switch on both controllers. Both controllers should now appear as connected. If you have already pointed Lighthouse base stations at you and they are switched on, these will also be displayed.
+
+Otherwise you can do that now. Switches on the Lighthouse base stations. If they are in sleep mode, disconnect the power for a few seconds and reconnect them.
+
+It is also important here: the Lighthouse base stations must already be installed. Moving it later ensures that most of the steps were in vain and have to be repeated.
+
+All Lighthouse devices are now displayed and are successfully connected.
+
+By the way: If the controllers need a firmware update, please do so. It is not recommended for base stations with version 1.0, but not with 2.0 devices. I cannot say why that is so. However, if everything works in the end even without a firmware update, you can save yourself the update anyway. Never change a running system.
+
+Now you switch off the index controller, but leave everything plugged in and the base stations switched on.
+
+Still on the desktop, in SteamVR go to Settings, Start / Exit and then to "Select overlay applications at startup". Switches "Space Calibrator" and "OVR Advanced Settings" to "On" and everything else, especially fpsVR, to "Off". At the very end you can turn on your personal overlay applications such as fpsVR, which you may have turned off now. Also enables the option under Controller in the settings that the index controllers are automatically switched off when SteamVR is closed.
+
+Now quit SteamVR.
+
+Now switch your HP Reverb G2 back on and wait until the WMR portal has opened.
+
+In the WMR portal you have to switch on the room limitation and set it up. You do this now even if you have already set it up. It is very important that you do this carefully so that you can later check that everything is working well. Also provides subsequently ensure that your true ground level. Pro tip here: Place a controller on the floor and look at the controller when you adjust the height. If the controller is covered by the floor, you know how to adjust the floor height.
+
+Open SteamVR from the Cliffhouse and carefully test whether your room limitation works. This must be triggered by both the HMD and the controller. If you see the limit of the room and everything is in order, the establishment has been successful. Now put the Steam Controller in front of you on the floor. Put the left G2 controller aside and switch it off beforehand by holding down the Windows button.
+
+Open the SteamVR dashboard, click on the three dots in the lower left and open Space Calibrator. In the top left, select the controller whose name begins with WindowsMR. Then you switch on the right index controller. This should then appear at the top right. Select it too and create the index controller. Push it back as far as possible so that you can now grasp the right G2 controller with your fingers. Also click on "Copy Chaperone Bounds to profile".
+
+Then select "very slow" on the right and click on "Start calibration".
+
+But before you start with the calibration, I'll explain how the calibration works. The right G2 controller is not merged with the right index controller here. Rather, the relative position of the WMR tracking is passed on to the space calibrator, which can then determine the relative position of the lighthouse tracking. So you could theoretically hold the right G2 controller and the left index controller in your hand. It is important, however, that the controllers themselves do not move in your hand. Therefore the index controller has to be firmly seated and the G2 controller has to be firmly in your hand. It doesn't matter whether the controllers are close together or not, it is only important that they are moved simultaneously and equally.
+
+Therefore it is also important that the tracking of the G2 controllers works. Of course , you can only achieve this if you move the controller in front of your G2 and do not leave the tracking volume. When you start the calibration, just make sure that the controllers are tight and that you are following the controllers with your head so that the tracking works. You can also move yourself in space, it doesn't matter. The only important thing is that everything is tracked.
+
+The calibration could also be carried out at the "fast" level, but we are just being meticulous here and want to collect as many samples of tracking data as we can. So let's take our time.
+
+As soon as the calibration is completed, you should now see
+
+both controllers in your hand as they are in your hand in reality.
+
+The calibration process is now complete. Quits SteamVR, turns off all controllers
+
+. Take both index controllers in hand and switch them on while you are in the Cliffhouse
+
+. SteamVR will open by itself and after a few seconds you should see your index
+
+controller. By now you have understood that calibrating the index controller
+
+on both sides is a mistake.
+
+In theory, you'd be done by now. What is still missing, however, are the room boundaries.
+
+If you test it carefully now, you will notice that the HMD hits the
+
+WMR room delimitation, but unfortunately not the index controller. The goal is
+
+now to do it the other way around: We don't need an HMD room delimitation, but above all
+
+a controller room delimitation for the index controller.
+
+Open the Space Calibrator again and uncheck "Paste Chaperone bounds automatically".
+
+Now we need the second tool: The OVR Advanced Settings.
+
+Open this just like the Space Calibrator from the SteamVR dashboard at the bottom left. Click
+
+on Settings at the bottom left, then activate "Allow External Edits" and "Force use SteamVR Chaperone
+
+Bounds (experimental)".
+
+Now you quit SteamVR. From now on, every
+
+time SteamVR is started, the SteamVR room survey will start. That is correct. Later we will configure something
+
+so that you don't have to close it manually. First, however, we need
+
+the room measurement. Therefore, SteamVR starts again.
+
+Put the G2 down and carefully place it on the floor. Now go to the PC and follow the
+
+instructions of the SteamVR room measurement for room-filling VR.
+
+When you're done, put the G2 back on. Now you can see that the room boundaries
+
+are displayed. Test it out carefully! To save the settings,
+
+open the OVR Advanced Settings again, click on Chaperone on the left and then on "new
+
+profile". Name this new profile, for example, G2 and click on "save". If
+
+you should have problems at any time, you can always reload the profile.
+
+At this point the note: The lighthouse tracking and its room measurement is "for eternity".
+
+That means, no matter what you do with your G2, the spatial limits of the lighthouse tracking will
+
+always be present. Just make sure that the base stations do not move.
+
+So make sure they are securely attached to the wall or ceiling before
+
+starting this tutorial. What can change, however, is the position of
+
+the controller itself, i.e. drifting, as mentioned at the beginning of the video.
+
+More on that later .
+
+Now access your desktop via the SteamVR dashboard, open the WMR portal and
+
+deactivate the "display of room boundaries". From now on you can use the G2 without room boundaries, e.g.
+
+sitting in your racing rig or at your desk with your G2 controllers
+
+and separately the index controller and its room boundaries.
+
+By and large, we've already done everything. Before you continue, test
+
+it out a little and evaluate the lighthouse tracking for you.
+
+Here is a brief hint: Should drifting occur, i.e. the index controllers are displayed in
+
+a different position in VR than they are actually held, open
+
+the Space Calibrator from the SteamVR dashboard, select the HP Reverb Virtual Reality
+
+Headset at the top left G20 and right-click on one of the two index controllers.
+
+At Calibration Speed you set "almost". Now put one hand including the controller
+
+on your head so that it looks like a unicorn. You have to have a secure hold on
+
+your head. This is about the index controller, not the G2 controller.
+
+If you move your head right away, the hand with the controller must not slip,
+
+but must move parallel to the head. So now start the calibration and move
+
+your head around in a figure of eight. The calibration to almost works super fast
+
+and the index controllers should now be back in place. If, for whatever
+
+reason , something went wrong, repeat the calibration with your G2 controllers
+
+as described above. However, leave out the "Copy Chaperone Bounds to profile" step here
+
+.
+
+Also, the height of the ground will change from time to time. To fix this, click
+
+Space Fix in the OVR Advanced Settings. Then place an index controller on the floor
+
+and click with the other on "Fix Floor". The floor height is then recalibrated.
+
+This is especially useful because you can adjust the floor height while playing.
+
+Unfortunately this only works with the Index Controllers and not with the
+
+G2 Controllers.
+
+The problem with the combination of the two tracking systems, however, is that they don't work
+
+seamlessly with each other. This means that the base stations do not automatically go into stand-by mode
+
+when you exit SteamVR and they do not start when you start SteamVR. In addition
+
+, the constant termination of the SteamVR room measurement is annoying and often requires that you
+
+close it yourself on the PC, as there is no VR mode for it.
+
+Finally, there is a solution to these problems: The MixedVR Manager.
+
+monstermac77 wrote a script and a service that runs on your PC
+
+. I have expanded or adapted this a little.
+
+This service ensures that you can use the G2 with the Index Controllers as follows
+
+:
+
+Switch on the G2 manually via a radio-controlled socket and wait until the WMR portal opens,
+
+create the Index Controller and put on the G2, switch on the Index Controller,
+
+SteamVR is now automatic started by switching on the index controller, then
+
+the Lighthouse base stations are started automatically
+
+and the room measurement is ended automatically.
+
+If you want to stop VR, you quit SteamVR in the dashboard: The index controller
+
+and the Lighthouse base stations are switched off and the WMR portal closes. The G2 can
+
+then be switched off via a radio-controlled socket.
+
+Originally, the tool even had the option of automatically activating and deactivating
+
+the G2 in the device manager of your PC, so that the HP logo disappears even though it is
+
+otherwise completely connected. However, I have now tested it longer and had
+
+more problems with it than it was successful. So I disabled it in my GitHub download fork in the
+
+script. It is therefore essential to use the recommended solution via a radio-controlled socket.
+
+However, you have to note that every automation sometimes does something that you
+
+don't actually want. I don't mean that it works wrong. However,
+
+with every SteamVR start, for whatever reason SteamVR was started, the base stations
+
+etc. would also be switched on. The same applies, of course, to a SteamVR restart,
+
+where everything is switched off and then switched on.
+
+So if you often use different setups on the same PC, ie G2 with G2 controllers,
+
+G2 with index controller, Oculus Quest 2 via Virtual Desktop, etc., you should run the script
+
+manually rather than automatically. More on that later.
+
+However, if you don't have Bluetooth built into your PC, you can also use an Android app
+
+or, for example, use a laptop that has Bluetooth in parallel. Of course, you can
+
+also manually disconnect and restore the power supply to the base stations.
+
+Here, too, I recommend radio-controlled sockets. If you want to do this, the
+
+script has to be adapted. Write to me about this in the Discord.
+
+The following steps therefore relate to the fact that Bluetooth is present in the VR PC
+
+.
+
+I will now show you the possibility to configure everything automatically. Then
+
+I'll show you the mentioned option of switching the Lighthouse stations on manually via a batch file.
+
+Download the ZIP file to your desktop and unzip it. Open the unzipped folder
+
+and move the folder "vr-main" to your drive C. Open the folder "vr-main",
+
+then the folder "bin".
+
+Then you open a command prompt window, short command prompt, by pressing the Windows
+
+key + R , then enter cmd in the run window.
+
+First you have to switch to the directory in the command prompt in which you
+
+want to execute the commands. Therefore, copy the path of the previously opened
+
+folder to the clipboard and then enter "cd", then a space and then
+
+paste the copied path from your clipboard again.
+
+Now all commands in this directory will be executed. You can now search for
+
+the MAC addresses of your Lighthouse base stations. You do this by entering the following: lighthouse-keeper.exe
+
+2 discover
+
+The number 2 stands for base stations of version 2.0. If you have version 1.0 base stations
+
+, replace the 2 with a 1.
+
+Then press Enter and wait until the tool has found the base stations in the PC using your Bluetooth
+
+.
+
+As you can see, I have to carry out the order here several times. That's not bad.
+
+It is important that you have found as many unique MAC addresses as you use base stations
+
+.
+
+Now you can go back one level in Windows Explorer to land
+
+back in the vr-main folder . There you do a right click on "config.bat" and click on edit.
+
+Here you replace the MAC addresses with yours. Also make sure that you enter the correct
+
+Lighthouse base station version here as well .
+
+The remaining settings can remain the same as long as the Steam and SteamVR installation path
+
+is correct. If not, adjust it here.
+
+Close the config.bat and click on save.
+
+Now you have to put the mixedvr manager service into the autostart. You do this by
+
+pressing the Windows + R key to open Run and then enter shell: startup
+
+.
+
+The opened folder contains manually added startup programs. Copy the mixedvr-manager-launcher.vbs that
+
+is in the vr-main directory, right-click in the startup folder
+
+and click on paste shortcut, but not on paste!
+
+Now you restart your PC and don't notice anything at first.
+
+If you now switch on the G2 via a radio-controlled socket, wait until the WMR portal opens.
+
+Go to your playspace, put on the G2 and put on the index controller.
+
+Turns on both Index Controllers and observes that SteamVR opens by itself.
+
+The tool now monitors in the background whether SteamVR and the room measurement open.
+
+The room measurement is now closed automatically. In the meantime, your Lighthouse base stations will
+
+also start up automatically if they were not switched on.
+
+If you turn off SteamVR now, the WMR portal will also be automatically turned off and
+
+the base stations shut down. Try this out.
+
+Normally everything should work, so I'm not listing all potential sources of error
+
+here in the video . If something doesn't work, please write it in the
+
+comments or better still: Come to our Discord so I can help you.
+
+If you prefer the non-automated method, ie you want to switch the base stations on and off
+
+yourself with a script and want to close the room measurement yourself
+
+, replace your Lighthouse MAC addresses in the scripts "manual on" and "manual off"
+
+in the folder "bin" and then runs these two scripts as needed to turn the base stations
+
+on and off. Here you can create shortcuts on your desktop.
+
+If you prefer this manual way, remove the link in the startup folder.
+
+You can of course also start the file mixedvr-manager-launcher.vbs manually so that the monitoring of the
+
+MixedVR manager only starts when you want to play. You can end it
+
+by closing the cmd process in the task manager under details.
+
+We have now come to the end of the tutorial. I'm sure this sounds very complicated at first
+
+glance. Ultimately, however, it is not the procedure that is complicated
+
+, but, for example, the lack of practice with scripts. I myself need about 15 minutes
+
+for the whole process from the beginning of the video to the end.
+
+Many steps of the tutorial also need to be done with native Lighthouse VR headsets
+
+. Only a few steps are really necessary because of the hybrid solution. So
+
+don't put off the approach, but rather the price of the purchase.
+
+I personally paid the following:
+
+EUR 299.00 for my Index Controller EUR 270.00 for my used HTC Lighthouse
+
+2.0 base stations EUR 40.00 for my two HTC Vive Tracker
+
+Dongles EUR 534.00 for my HP Reverb G2
+
+= EUR 1,143
+
+Don't forget However, it is safe to say that I got the purchase price of Half-Life: Alyx reimbursed
+
+after the purchase of the Index Controller . This is still true today.
+
+Therefore it is a total of around EUR 1,100 for the hybrid solution.
+
+For me, almost no cost to the Valve Index complete set. If you consider that
+
+the G2 can also be operated without lighthouse tracking and that it represents better VR glasses for me
+
+, especially in terms of image quality, this solution is a real added value.
+
+I am aware, however, that not everyone can issue this invoice, as the HP
+
+Reverb G2 normally costs EUR 699.00. In addition, the unavailability of the dongles and
+
+often the index controller is a reason to refrain from this solution.
+
+Therefore, I cannot recommend anyone to buy this setup at a higher cost. It works
+
+great and there is nothing better, but in my opinion the G2, including its
+
+tracking and controller, is worth the money and no upgrade is necessary.
+
+However, for everyone who comes from Valve Index or has used Lighthouse before
+
+, this can be a good addition.
+
+Watch this video again to understand everything in peace the second time you watch it.
+
+Use the timestamps for orientation and also like to use my written instructions.
+
+This is linked in the video description.
+
+Thank you for watching. Please rate this video and leave a subscription
+
+if you want to see more about VR in the future. Your Discord memberships, your comments
+
+and your subscriptions motivate me to continue providing content in the future. See you soon, your Marco.
